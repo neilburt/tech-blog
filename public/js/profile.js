@@ -1,4 +1,4 @@
-const newFormHandler = async (event) => {
+const newPostHandler = async (event) => {
   event.preventDefault();
 
   const title = document.querySelector('#post-title').value.trim();
@@ -13,6 +13,26 @@ const newFormHandler = async (event) => {
 
     if(response.ok){
       document.location.replace('/profile');
+    }else{
+      alert('failed to post content');
+    }
+  }
+};
+
+const newCommentHandler = async (event) => {
+  event.preventDefault();
+
+  const comment_body = document.querySelector('#comment-body').value.trim();
+
+  if(comment_body){
+    const response = await fetch('/api/comments', {
+      method: 'POST',
+      body: JSON.stringify({comment_body}),
+      headers: {'Content-Type': 'application/json'}
+    });
+
+    if(response.ok){
+      document.location.replace('/homepage');
     }else{
       alert('failed to post content');
     }
@@ -35,6 +55,8 @@ const deleteBtnHandler = async (event) => {
   }
 };
 
-document.querySelector('#new-post-form').addEventListener('submit', newFormHandler);
+document.querySelector('#new-post-form').addEventListener('submit', newPostHandler);
 
 document.querySelector('#post-list').addEventListener('click', deleteBtnHandler);
+
+document.querySelector('#new-comment-form').addEventListener('click', newCommentHandler);

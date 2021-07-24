@@ -1,4 +1,19 @@
 <h2>{{title}}</h2>
 <p>{{post_body}}</p>
 <p class="post-footer">posted by {{user.name}} on {{post_date}}</p>
-<button>comment</button>
+<form id="new-comment-form">
+  <label for="comment-body">your sass:</label>
+  <input class="form-input" type="textarea" id="comment-body" name="comment-body" />
+  <button type="submit">post comment</button>
+</form>
+{{#if comments.length}}
+{{#each comments as |comment|}}
+    <h2>
+      <a href="/comments/{{comment.id}}">{{user.name}}</a>
+    </h2>
+    <p>
+      {{comment_body}}
+    </p>
+    <p>made on {{comment_date}}</p>
+{{/each}}
+{{/if}}

@@ -2,9 +2,24 @@ const router = require('express').Router();
 const {Post, User} = require('../models');
 const withAuth = require('../utils/auth');
 
+// router.get('/', async (req, res) => {
+//   console.log("Hitting logged in homepage route!!")
+//   try {
+//     res.render('homepage', {
+//       User,
+//       logged_in: req.session.logged_in
+//     });
+
+//   }catch(err){
+//     console.log(err);
+//     res.status(500).json(err);
+//   }
+// });
+
 router.get('/', async (req, res) => {
   try{
     const postData = await Post.findAll({
+      attributes: req.body,
       include: [{
         model: User,
         attributes: ['name']
@@ -14,16 +29,17 @@ router.get('/', async (req, res) => {
     const posts = postData.map((post) => post.get({plain: true}));
 
     res.render('homepage', {
-      posts,
-      logged_in: req.sessions.logged_in
+      posts
+      // logged_in: req.sessions.logged_in
     });
 
   }catch(err){
+    console.log(err);
     res.status(500).json(err);
   }
 });
 
-router.get('/post/:id', async (req, res) => {
+router.get('/posts/:id', async (req, res) => {
   try{
     const postData = await Post.findByPk(req.params.id, {
       include: [{
@@ -32,10 +48,31 @@ router.get('/post/:id', async (req, res) => {
       }]
     });
 
-    const post = postData.get({plain: true});
+    const posts = postData.get({plain: true});
 
     res.render('post', {
-      ...post,
+      ...posts,
+      logged_in: req.session.logged_in
+    });
+
+  }catch(err){
+    res.status(500).json(err);
+  }
+});
+
+router.get('/comments/:id', async (req, res) => {
+  try{
+    const commentData = await Comment.findByPk(req.params.id, {
+      include: [{
+        model: User,
+        attributes: ['name']
+      }]
+    });
+
+    const comments = commentData.get({plain: true});
+
+    res.render('comment', {
+      ...comments,
       logged_in: req.session.logged_in
     });
 
@@ -70,6 +107,15 @@ router.get('/login', (req, res) => {
   }
 
   res.render('login');
+});
+
+router.get('/signup', (req, res) => {
+  if(req.session.logged_in){
+    res.redirect('/profile');
+    return;
+  }
+
+  res.render('signup');
 });
 
 module.exports = router;
