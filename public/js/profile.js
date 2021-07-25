@@ -34,7 +34,7 @@ const newCommentHandler = async (event) => {
     if(response.ok){
       document.location.replace('/homepage');
     }else{
-      alert('failed to post content');
+      alert('failed to comment content');
     }
   }
 };
@@ -59,4 +59,4 @@ document.querySelector('#new-post-form').addEventListener('submit', newPostHandl
 
 document.querySelector('#post-list').addEventListener('click', deleteBtnHandler);
 
-document.querySelector('#new-comment-form').addEventListener('click', newCommentHandler);
+document.querySelector('#new-comment-form').addEventListener('submit', newCommentHandler);

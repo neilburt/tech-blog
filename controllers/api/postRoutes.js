@@ -1,12 +1,12 @@
 const router = require('express').Router();
-const Post = require('../../models/Post');
+const {Post, Comment} = require('../../models');
 const withAuth = require('../../utils/auth');
 
 router.post('/', withAuth, async (req, res) => {
   try{
     const newPost = await Post.create({
       ...req.body,
-      user_id: req.session.user_id,
+      user_id: req.session.user_id
     });
 
     res.status(200).json(newPost);
