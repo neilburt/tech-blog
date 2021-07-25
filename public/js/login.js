@@ -1,3 +1,4 @@
+// facilitates an existing user login
 const loginFormHandler = async (event) => {
   event.preventDefault();
 
@@ -19,6 +20,7 @@ const loginFormHandler = async (event) => {
   }
 };
 
+// facilitates a new user signup
 const signupFormHandler = async (event) => {
   event.preventDefault();
 

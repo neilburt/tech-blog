@@ -2,6 +2,7 @@ const router = require('express').Router();
 const {Post, Comment} = require('../../models');
 const withAuth = require('../../utils/auth');
 
+// allows for creation of posts (CRUD)
 router.post('/', withAuth, async (req, res) => {
   try{
     const newPost = await Post.create({
@@ -16,6 +17,7 @@ router.post('/', withAuth, async (req, res) => {
   }
 });
 
+// allows for deletion of posts (CRUD)
 router.delete('/:id', withAuth, async (req, res) => {
   try{
     const postData = await Post.destroy({
@@ -38,6 +40,7 @@ router.delete('/:id', withAuth, async (req, res) => {
   }
 });
 
+// allows for referencing specific comments by id
 router.get('/comments/:id', async (req, res) => {
   try{
     const commentData = await Comment.findByPk(req.params.id, {

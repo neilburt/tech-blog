@@ -1,3 +1,4 @@
+// facilitates the creation of a new post by a logged-in user
 const newPostHandler = async (event) => {
   event.preventDefault();
 
@@ -19,6 +20,7 @@ const newPostHandler = async (event) => {
   }
 };
 
+// facilitates the creation of a comment on a post by a logged-in user
 const newCommentHandler = async (event) => {
   event.preventDefault();
 
@@ -39,6 +41,7 @@ const newCommentHandler = async (event) => {
   }
 };
 
+// facilitates the deletion of a post
 const deleteBtnHandler = async (event) => {
   if(event.target.hasAttribute('data-id')){
     const id = event.target.getAttribute('data-id');

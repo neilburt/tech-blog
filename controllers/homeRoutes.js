@@ -2,6 +2,7 @@ const router = require('express').Router();
 const {Post, User, Comment} = require('../models');
 const withAuth = require('../utils/auth');
 
+// allows reference to any post
 router.get('/', async (req, res) => {
   try{
     const postData = await Post.findAll({
@@ -24,6 +25,7 @@ router.get('/', async (req, res) => {
   }
 });
 
+// allows reference to specific posts by id
 router.get('/posts/:id', async (req, res) => {
   try{
     const postData = await Post.findByPk(req.params.id, {
@@ -45,6 +47,7 @@ router.get('/posts/:id', async (req, res) => {
   }
 });
 
+// allows for reference to any comment
 router.get('/comments', async (req, res) => {
   try{
     const commentData = await Comment.findAll({
@@ -58,6 +61,7 @@ router.get('/comments', async (req, res) => {
   }
 });
 
+// allows for reference to specific comments by id
 router.get('/comments/:id', async (req, res) => {
   try{
     const commentData = await Comment.findByPk(req.params.id, {
@@ -79,6 +83,7 @@ router.get('/comments/:id', async (req, res) => {
   }
 });
 
+// allows for compliation of a user's profile for the profile page
 router.get('/profile', withAuth, async (req, res) => {
   try{
     const userData = await User.findByPk(req.session.user_id, {
@@ -98,6 +103,7 @@ router.get('/profile', withAuth, async (req, res) => {
   }
 });
 
+// directs logged-in user to the profile page
 router.get('/login', (req, res) => {
   if(req.session.logged_in){
     res.redirect('/profile');
@@ -107,6 +113,7 @@ router.get('/login', (req, res) => {
   res.render('login');
 });
 
+// directs logged-in user who to profile page (signup click)
 router.get('/signup', (req, res) => {
   if(req.session.logged_in){
     res.redirect('/profile');

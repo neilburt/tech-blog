@@ -2,6 +2,7 @@ const router = require('express').Router();
 const Comment = require('../../models/Comment');
 const withAuth = require('../../utils/auth');
 
+// allows for creation of comments on posts (CRUD)
 router.post('/', withAuth, async (req, res) => {
   try{
     const newComment = await Comment.create({
@@ -16,6 +17,7 @@ router.post('/', withAuth, async (req, res) => {
   }
 });
 
+// allows for deletion of comments on posts (CRUD)
 router.delete('/:id', withAuth, async (req, res) => {
   try{
     const commentData = await Comment.destroy({

@@ -1,3 +1,4 @@
+// allows a user to end their session
 const logout = async () => {
   const response = await fetch('/api/users/logout', {
     method: 'POST',
