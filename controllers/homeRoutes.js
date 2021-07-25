@@ -116,4 +116,8 @@ router.get('/signup', (req, res) => {
   res.render('signup');
 });
 
+app.get("/", function(req, res) {
+  res.json(path.join(__dirname, "public/index.html"));
+});
+
 module.exports = router;
