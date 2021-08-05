@@ -24,6 +24,10 @@ const sess = {
 
 app.use(session(sess));
 
+app.use(require('./controllers/index'));
+app.use(require('./controllers/api'));
+app.use(require('./controllers/homeRoutes'));
+
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 

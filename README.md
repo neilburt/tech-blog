@@ -1,10 +1,10 @@
 # Tech Blog  
-
+  
 ## Description  
-
-This is a web app that utilizes MySQL, Handlebars, and several other Node.js packages to deliver an interactive blog experience.
-
-## Table of Contents
+  
+This is a web app that utilizes MySQL, Handlebars, and several other Node.js packages to deliver an interactive blog experience.  
+  
+## Table of Contents  
 - ### [Installation](#installation)
 - ### [Usage](#usage)
 - ### [Screenshots](#screenshots)
@@ -22,12 +22,12 @@ Once the application is called by typing 'npm start' in the terminal, the user c
 Check out the [deployed app](https://arcane-shelf-58681.herokuapp.com/) at Heroku.  
   
 ## Screenshots  
-![Screenshot of Employee Tracker being used in VS Code](./assets/images/screenshot.jpg)  
-
+![screenshot of Tech Blog](./assets/images/screenshot.jpg)  
+  
 ---  
-
-![Screenshot of Employee Tracker being used in VS Code further along](./assets/images/screenshot2.jpg)  
-
+  
+![screenshot of Tech Blog](./assets/images/screenshot2.jpg)  
+  
 ## Contributing  
   
 Neil Burt  
@@ -35,7 +35,7 @@ Neil Burt
 ## Questions  
   
 If you have any additional questions:  
-
+  
 Visit my [GitHub profile](https://github.com/neilburt).  
-
+  
 Or you can [email me](mailto:neil.burt@comcast.net).

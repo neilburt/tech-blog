@@ -1,6 +1,8 @@
 
 <h2>Welcome, {{name}}</h2>
+
 <h3>Make a new Post:</h3>
+
 <form id="new-post-form">
   <label for="post-title">title:</label>
   <input class="form-input" type="text" id="post-title" name="post-title" />
@@ -8,6 +10,7 @@
   <input class="form-input" type="textarea" id="post-body" name="post-body" />
   <button type="submit">post</button>
 </form>
+
 {{#if posts.length}}
 <div id="post-list">
   <h3>Prior Posts:</h3>
@@ -16,5 +19,9 @@
   <button data-id="{{post.id}}">delete</button>
   {{/each}}
 </div>
+
+<script src="./js/delete.js"></script>
+<script src="./js/comment.js"></script>
 {{/if}}
-<script src="./js/profile.js"></script>
+
+<script src="./js/post.js"></script>
