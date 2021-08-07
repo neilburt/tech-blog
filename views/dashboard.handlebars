@@ -1,5 +1,5 @@
 
-<h2>Welcome, {{name}}</h2>
+<h2>Welcome, {{name}}.</h2>
 
 <h3>Make a new Post:</h3>
 
@@ -16,12 +16,11 @@
   <h3>Prior Posts:</h3>
   {{#each posts as |post|}}
   <h4><a href="/posts/{{post.id}}">{{post.title}}</a></h4>
-  <button data-id="{{post.id}}">delete</button>
+  <button id="delete-btn" data-id="{{post.id}}">delete</button>
+  <a href="/edit/{{post.id}}"><button>edit</button></a>
   {{/each}}
 </div>
 
 <script src="./js/delete.js"></script>
-<script src="./js/comment.js"></script>
 {{/if}}
-
 <script src="./js/post.js"></script>

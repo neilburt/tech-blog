@@ -1,20 +1,28 @@
 
 <h2>{{title}}</h2>
 <p>{{post_body}}</p>
-<p class="post-footer">posted by {{user.name}} on {{post_date}}</p>
+<p class="post-footer">posted by {{user.name}} on {{format_date post_date}}</p>
+  {{#if comments.length}}
+  <div class="col-md-6 post-list">
+    <h3>Current comments:</h3>
+    <div class="row mb-2">
+      <div class="col-md-8">
+        {{#each comments}}
+          {{> comment}}
+        {{/each}}
+      </div>
+    </div>
+  </div>
+  {{/if}}
+{{#if logged_in}}
 <form id="new-comment-form">
   <label for="comment-body">your sass:</label>
   <input class="form-input" type="textarea" id="comment-body" name="comment-body" />
   <button type="submit">post comment</button>
 </form>
-{{#if comments.length}}
-{{#each comments as |comment|}}
-    <h2>
-      <a href="/comments/{{comment.id}}">{{user.name}}</a>
-    </h2>
-    <p>
-      {{comment_body}}
-    </p>
-    <p>made on {{comment_date}}</p>
-{{/each}}
+{{/if}}
+{{#if logged_in}}
+<script src="../../../js/comment.js"></script>
+{{else}}
+<a href="/"><button>home</button></a>
 {{/if}}

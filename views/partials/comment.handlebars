@@ -1,6 +1,11 @@
 
-<form id="new-comment-form">
-  <label for="comment-body">your sass:</label>
-  <input class="form-input" type="textarea" id="comment-body" name="comment-body" />
-  <button type="submit">post comment</button>
-</form>
+<div class="comments">
+  <section class="comment">
+    <div class="text">
+      {{this.comment_body}}
+    </div>
+    <div class="meta">
+      {{this.user.name}} on {{format_date this.comment_date}}
+    </div>
+  </section>
+</div>

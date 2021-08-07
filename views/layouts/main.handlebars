@@ -7,12 +7,16 @@
 </head>
 <body>
   <header>
-    <h1><a href="/">Tech Blog</a></h1>
+    <h1>Tech Blog</h1>
     <nav>
       {{#if logged_in}}
-      <a href="/profile">profile</a> | <button id="logout">logout</button>
+      <div>
+        <a href="/"><button>home</button></a> | <a href="/dashboard"><button>dashboard</button></a> | <button id="logout">logout</button>
+      </div>
       {{else}}
-      <a href="/login">login</a><span> or </span><a href="/signup">signup</a>
+      <div>
+        <a href="/login"><button>login</button></a><span> or </span><a href="/signup"><button>signup</button></a>
+      </div>
       {{/if}}
     </nav>
   </header>
@@ -23,7 +27,7 @@
 
   </footer>
   {{#if logged_in}}
-  <script src="./js/logout.js"></script>
+  <script src="../../../js/logout.js"></script>
   {{/if}}
 </body>
 </html>

@@ -1,14 +1,14 @@
 // allows a user to end their session
 const logout = async () => {
-  const response = await fetch('/api/users/logout', {
+  const res = await fetch('/logout', {
     method: 'POST',
     headers: {'Content-Type': 'application'},
   });
 
-  if(response.ok){
+  if(res.ok){
     document.location.replace('/');
-  }else{
-    alert(response.statusText);
+  } else {
+    alert(res.statusText);
   }
 };
 
