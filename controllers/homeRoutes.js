@@ -2,25 +2,15 @@ const router = require('express').Router();
 const {Post, User, Comment} = require('../models');
 const withAuth = require('../utils/auth');
 
-// renders homepage
+// renders homepage with posts
 router.get('/', async (req, res) => {
   try{
     const postData = await Post.findAll({
-      include: [{
+      include: {
         model: User,
         attributes: ['name']
-      },
-      {
-        model: Comment,
-        attributes: ['id', 'comment_body', 'post_id', 'user_id', 'comment_date'],
-        include: {
-          model: User,
-          attributes: ['name']
-        }
-      }]
+      }
     });
-
-    const comments = await Comment.findAll({});
 
     const posts = postData.map((post) => post.get({plain: true}));
 
@@ -55,7 +45,7 @@ router.get('/dashboard', withAuth, async (req, res) => {
   }
 });
 
-// renders signup or dashboard if already registered
+// renders signup or dashboard if already logged-in
 router.get('/signup', (req, res) => {
   if(req.session.logged_in){
     res.redirect('/dashboard');
@@ -154,6 +144,7 @@ router.get('/posts/:id', async (req, res) => {
   }
 });
 
+// route for access to post editing
 router.get('/edit/:id', async (req, res) => {
   try{
     const postData = await Post.findByPk(req.params.id, {

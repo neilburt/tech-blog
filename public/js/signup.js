@@ -1,3 +1,4 @@
+// facilitates the creation of a new user
 const signupFormHandler = async (e) => {
   e.preventDefault();
 

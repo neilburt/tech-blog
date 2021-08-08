@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const {Post, Comment, User} = require('../../models');
 
-// allows for creation of new users (CRUD)
+// allows for creation of new users
 router.post('/', async (req, res) => {
   try{
     const newUser = await User.create(req.body);

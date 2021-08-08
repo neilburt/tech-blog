@@ -17,16 +17,20 @@ Simply install Node.js, open the terminal, run 'npm install' and then 'npm start
   
 ## Usage  
   
-Once the application is called by typing 'npm start' in the terminal, the user can load the app in their browser with the localhost:3001 address, click the signup link, and create and account to add a post or comment on one. The user may also update post or delete comments and posts by clicking the delete buttons found below each.  
+A new user can click the signup link and create an account and existing users just need to log in to be forwarded to their dashboard page. If not logged-in or registered, a user can still view the blog posts from the homepage. New user or otherwise, once they're logged-in, they can add a post or comment on an existing one. The user may also update or delete their own posts by clicking the corresponding buttons found below each on their dashboard page.  
   
-Check out the [deployed app](https://arcane-shelf-58681.herokuapp.com/) at Heroku.  
+Check out the [deployed app](https://stormy-crag-19904.herokuapp.com/) at Heroku.  
   
 ## Screenshots  
-![screenshot of Tech Blog](./assets/images/screenshot.jpg)  
+![screenshot of Tech Blog homepage](./assets/images/screenshot.jpg)  
   
 ---  
   
-![screenshot of Tech Blog](./assets/images/screenshot2.jpg)  
+![screenshot of Tech Blog on user dashboard page](./assets/images/screenshot2.jpg)  
+  
+---  
+  
+![screenshot of Tech Blog post page with comment field](./assets/images/screenshot3.jpg)  
   
 ## Contributing  
   
