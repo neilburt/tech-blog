@@ -1,11 +1,5 @@
 
-<div class="comments">
-  <section class="comment">
-    <div class="text">
-      {{this.comment_body}}
-    </div>
-    <div class="meta">
-      {{this.user.name}} on {{format_date this.comment_date}}
-    </div>
-  </section>
+<div class="comments card-body">
+  <h6 class="comment card-title">{{this.comment_body}}</h6>
+  <p class="comment card-text">{{this.user.name}} on {{format_date this.comment_date}}</p>
 </div>

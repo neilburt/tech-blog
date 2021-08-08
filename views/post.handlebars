@@ -1,28 +1,49 @@
 
-<h2>{{title}}</h2>
-<p>{{post_body}}</p>
-<p class="post-footer">posted by {{user.name}} on {{format_date post_date}}</p>
-  {{#if comments.length}}
-  <div class="col-md-6 post-list">
-    <h3>Current comments:</h3>
-    <div class="row mb-2">
-      <div class="col-md-8">
+<div id="post" class="container-fluid">
+  <div class="row">
+    <div class="col-8">
+      <div class="post card">
+        <h2 class="post card-header">{{title}}</h2>
+        <div class="post card-body">
+          <h5 class="card-title">{{post_body}}</h5>
+          <p class="card-text">posted by {{user.name}} on {{format_date post_date}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{{#if comments.length}}
+<div id="comments" class="container-fluid">
+  <div class="row">
+    <div class="col-4">
+      <div class="comments card">
+        <h3 class="comments card-header">comments</h3>
         {{#each comments}}
-          {{> comment}}
+        {{> comment}}
         {{/each}}
       </div>
     </div>
   </div>
-  {{/if}}
+</div>
+{{/if}}
 {{#if logged_in}}
-<form id="new-comment-form">
-  <label for="comment-body">your sass:</label>
-  <input class="form-input" type="textarea" id="comment-body" name="comment-body" />
-  <button type="submit">post comment</button>
-</form>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-4">
+      <form id="new-comment-form">
+        <div class="form-group">
+          <label for="comment-body">your two cents</label>
+          <textarea class="form-input form-control" type="textarea" id="comment-body" name="comment-body"
+            placeholder="comment"></textarea>
+        </div>
+        <button type="submit" class="btn btn-secondary comment">post comment</button>
+      </form>
+    </div>
+  </div>
+</div>
 {{/if}}
 {{#if logged_in}}
 <script src="../../../js/comment.js"></script>
 {{else}}
-<a href="/"><button>home</button></a>
+<a href="/"><button id="home-btn" class="btn btn-secondary">home</button></a>
 {{/if}}

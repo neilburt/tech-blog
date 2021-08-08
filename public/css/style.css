@@ -1,0 +1,106 @@
+:root {
+  --blue: hsl(180, 100%, 41%);
+  --red: hsl(9, 100%, 75%);
+}
+
+body {
+  background-color: hsl(0, 0%, 75%);
+  font-family: 'Jost';
+  padding-bottom: 64px;
+}
+
+.jumbotron, .post.card-header {
+  background-color: var(--blue);
+}
+
+h1 {
+  font-family: 'Zen Tokyo Zoo', serif;
+}
+
+.navbar, .comments.card-header {
+  background-color: var(--red);
+}
+
+.navbar-brand {
+  color: black;
+}
+
+.navbar-brand:hover, .btn:hover {
+  color: var(--blue);
+}
+
+#logout:hover {
+  cursor: pointer;
+}
+
+h2 {
+  margin: 1rem 0 1rem 1rem;
+  font-weight: 600;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--blue);
+  text-decoration: none;
+}
+
+.card {
+  min-width: 5rem;
+}
+
+.btn.comment:hover, .home.card a:hover {
+  color: var(--red);
+}
+
+.home.card-header {
+  background-color:  var(--blue);
+}
+
+.home.card {
+  margin: 1rem 0 1rem 0;
+}
+
+#home-btn {
+  margin: 1rem 0 0 1rem;
+}
+
+#comments, #new-comment-form, #prior, .post.card, .edit-heading, .dash-post {
+  margin-top: 1rem;
+}
+
+.welcome {
+  margin: 2rem 0 2rem 0;
+}
+
+h3, form {
+  margin-left: 1rem;
+}
+
+label {
+  font-weight: 600;
+}
+
+#post-list {
+  margin: 1rem 1rem 0 1rem;
+}
+
+.card-deck {
+  margin-right: 1rem;
+}
+
+.card-header {
+  margin: 0;
+  background-color: var(--red);
+}
+
+#sign-up {
+  margin-left: 16px;
+}
+
+.comment.card-text {
+  font-size: 12px;
+}
